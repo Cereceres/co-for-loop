@@ -1,4 +1,5 @@
 # co-for-loop
+[![Build Status](https://travis-ci.org/Cereceres/co-for-loop.svg?branch=master)](https://travis-ci.org/Cereceres/co-for-loop)
 asyn loop using generators
 ## Install
 
