@@ -14,8 +14,8 @@ Function that loop over a set of values asynchronous, you can use arrays, object
 and strings to do a async loop.
 ### co_for_loop(iterator,promiseGenerator)=>Promise
 The promise will be resolved when iterate over all iterator. Iterator could be a array
-, object and string. The function receive promiseGenerator the value stored into iterator
-if is array, the keys and values if is a object. The return object of promiseGenerator have to
+, object and string. The function receive promiseGenerator the value stored into iterator, index and array self
+if is array, the keys,values and object self if is a object. The return object of promiseGenerator have to
 be a promise, if this promise is resolved with a true boolean value the loop is stopped.
 The case when the iterator is a string has to be like 'min:increment:max' where the loop is init
 in min value and is increment until max value, if the increment value is missing

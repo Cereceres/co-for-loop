@@ -1,6 +1,6 @@
 {
   "name": "co-for-loop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "for loop async using generators",
   "main": "index.js",
   "scripts": {

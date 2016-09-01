@@ -14,10 +14,12 @@ let controller = {
 
   object: function (iterator, promise) {
     return new Promise(function (resolve, reject) {
+      var count = 0
       var next = function () {
+        count++
         res = iterator.next()
         if (!res.done) {
-          return promise.call(self, res.value, object ? object[res.value] : undefined)
+          return promise.call(self, res.value, object[res.value] === undefined ? count : object[res.value], object)
           .then(function (_next) {
             if (!_next) {
               return next()
@@ -31,7 +33,7 @@ let controller = {
       try {
         res = iterator.next()
         if (!res.done) {
-          return promise.call(self, res.value, object ? object[res.value] : undefined)
+          return promise.call(self, res.value, object[res.value] === undefined ? count : object[res.value], object)
         .then(function (_next) {
           if (!_next) {
             next()
