@@ -3,7 +3,10 @@ var res
 var increment
 var self
 var max, keys, object
-let debug = require('debug')('co-for-loop')
+let _debug = require('debug')
+let debug = _debug('co-for-loop')
+debug.info =_debug('co-for-loop:info')
+debug.error =_debug('co-for-loop:error')
 let controller = {
 /**
 * Helper method to do a loop async with objects
