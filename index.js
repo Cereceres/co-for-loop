@@ -23,8 +23,11 @@ let controller = {
                     return promise
                     .call(self, res.value, object[res.value] === undefined ?
                         count : object[res.value], object)
-                    .then(function (_next) {
-                        if (!_next) return next()
+                    .then( _next=> {
+                        if (!_next) {
+                            debug.info('fellowing the loop')
+                            return next()
+                        }
                         resolve(res.value)
                     })
                     .catch(reject)
@@ -39,13 +42,17 @@ let controller = {
                     .call(self, res.value, object[res.value] === undefined ?
                         count : object[res.value], object)
                     .then(function (_next) {
-                        if (!_next) return next()
+                        if (!_next){
+                            debug.info('following the loop')
+                            return next()
+                        }
                         resolve(res.value)
                     })
                     .catch(reject)
                 }
                 resolve(res.value)
             } catch (e) {
+                debug.error('error catched',e)
                 reject(e)
             }
         })
@@ -65,7 +72,9 @@ let controller = {
                     return promise
                     .call(self, res)
                     .then(function (_next) {
-                        if (!_next) return next()
+                        if (!_next) {
+                            debug.info('following the loop')
+                            return next()}
                         resolve(res)
                     })
                     .catch(reject)
@@ -86,13 +95,17 @@ let controller = {
                     return promise
                     .call(self, res)
                     .then(function (_next) {
-                        if (!_next) return next()
+                        if (!_next) {
+                            debug.info('following the loop')
+                            return next()
+                        }
                         resolve(res.value)
                     })
                     .catch(reject)
                 }
                 resolve(res.value)
             } catch (e) {
+                debug.error('error catched',e)
                 reject(e)
             }
         })
